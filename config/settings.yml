@@ -1,0 +1,11 @@
+user:
+  email:
+    max_length: 255
+  password:
+    min_length: 6
+  phone:
+    min_length: 10
+    max_length: 15
+  avatar-size:
+    max_size: 80
+    min_size: 50
