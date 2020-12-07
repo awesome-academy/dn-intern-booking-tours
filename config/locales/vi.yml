@@ -1,4 +1,19 @@
 vi:
-  booking_tour: "Đặt tour"
+  booking_tour: "HG Booking tours"
   english: "Tiếng Anh"
   vietnamese: "Tiếng Việt"
+  website_description: "HG Booking tours là một trang web cho phép đặt các tour du lịch đến mọi nơi"
+  home: "Trang chủ"
+  login: "Đăng nhập"
+  language: "Ngôn ngữ"
+  menu: "Menu"
+  language: "Ngôn ngữ"
+  copyright: "Copyright @ Pham Le Hoan 2020"
+  tour:
+    list_tour: "Danh sách tour"
+    tour_subheading: "Chọn điểm đến của bạn và khám phá"
+  booking:
+    booking_now: "Đặt vé ngay!"
+    book_tour: "Đặt tour này"
+    welcome1: "Chào mừng bạn đến với HG Booking Tours"
+    welcome2: "Nào cùng đi muôn nơi"

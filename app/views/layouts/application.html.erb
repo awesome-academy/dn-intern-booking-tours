@@ -7,15 +7,26 @@
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content=<%= t "booking_tour" %> />
+    <meta name="description" content= <%= t ("website_description") %> />
+    <meta name="keywords" content="bookingtours, booking, tours, phamlehoan, HG, HG Booking tours" />
+	  <meta name="author" content="PHAM LE HOAN" />
+
+    <%= favicon_link_tag asset_path("favicon.ico") %>
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
   </head>
 
-  <body>
-    <%= link_to locale: :en do %>
-      <%= image_tag("EN.png", alt: t("english"), class: "img-lang") %>
-    <% end %>
-    <%= link_to locale: :vi do %>
-      <%= image_tag("VN.png", alt: t("vietnamese"), class: "img-lang") %>
-    <% end %>
+  <body id="page-top">
     <%= yield %>
+    <%= javascript_pack_tag "custom" %>
   </body>
 </html>
