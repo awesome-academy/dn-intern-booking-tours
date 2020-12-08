@@ -1,0 +1,15 @@
+<!-- Tours Grid-->
+<section class="page-section bg-light" id="tours">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase"><%= t "tour.list_tour" %></h2>
+      <h3 class="section-subheading text-muted"><%= t "tour.tour_subheading" %></h3>
+    </div>
+    <div class="row">
+      <%= render partial: "tour_pages/tours/tour", collection: @tours %>
+      <div class="paginate-center">
+        <%= will_paginate @tours, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>
+      </div>
+    </div>
+  </div>
+</section>

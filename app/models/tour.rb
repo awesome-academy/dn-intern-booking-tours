@@ -10,5 +10,7 @@ class Tour < ApplicationRecord
   validates :description, presence: true
   validates :type_of_tour, presence: true
 
+  scope :sort_place_name, ->{order :place}
+
   enum type_of_tour: {periodic: 1, base_on_user: 2}
 end

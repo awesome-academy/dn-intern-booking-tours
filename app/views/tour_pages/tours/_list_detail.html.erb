@@ -1,0 +1,16 @@
+<% tours.each do |tour| %>
+  <tr>
+    <td scope="row">
+      <%= l(tour.start_date, format: :notime) %>
+    </td>
+    <td>
+      <%= l(tour.end_date, format: :notime) %>
+    </td>
+    <td>
+      <%= t("tour_price", price: exchange_money(tour.price)) %>
+    </td>
+    <td>
+      <%= link_to t("booking.book_tour"), "#", class: "btn btn-success" %>
+    </td>
+  </tr>
+<% end %>

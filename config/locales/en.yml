@@ -1,10 +1,21 @@
 en:
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%m/%d/%Y %H:%M"
+      short: "%H:%M"
+      notime: "%d/%m/%Y"
+  tour_price: "$%{price}"
   booking_tour: "HG Booking tours"
   english: "English"
   vietnamese: "Vietnamese"
   website_description: "HG Booking tour is the website allows people booking the tours to go everywhere"
   home: "Home"
   login: "Login"
+  close: "Close"
   language: "Language"
   menu: "Menu"
   language: "Language"
@@ -12,8 +23,13 @@ en:
   tour:
     list_tour: "List tours"
     tour_subheading: "Choose your destination and explore"
+    start_date: "Start date: "
+    end_date: "End date: "
+    price: "Price: "
+    rating: "Rating: "
+    review: "Review: "
   booking:
     booking_now: "Booking now!"
-    book_tour: "Book this tour"
+    book_tour: "Book tour"
     welcome1: "Welcome To Our Booking Tour Website!"
     welcome2: "It's Nice To Meet You"

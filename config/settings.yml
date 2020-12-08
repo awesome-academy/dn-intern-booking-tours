@@ -9,3 +9,5 @@ user:
   avatar-size:
     max_size: 80
     min_size: 50
+page:
+  per_page: 6

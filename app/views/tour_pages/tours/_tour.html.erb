@@ -1,0 +1,16 @@
+<div class="col-lg-4 col-sm-6 mb-4">
+  <div class="tour-item">
+    <%= link_to "#tourModal#{tour.id}", class: "tour-link", "data-toggle": "modal" do %>
+      <div class="tour-hover">
+        <div class="tour-hover-content"><i class="fas fa-info-circle fa-3x"></i></div>
+      </div>
+      <% @img_id = rand(5) %>
+      <%= image_tag "tour/0#{@img_id}-thumbnail.jpg", class:"img-fluid" %>
+    <% end %>
+    <div class="tour-caption">
+      <div class="tour-caption-heading"><%= tour.place %></div>
+      <div class="tour-caption-subheading text-muted"><%= tour.title %></div>
+    </div>
+  </div>
+</div>
+<%= render partial: "tour_pages/tours/tour_details", object: tour, as: "tour" %>
