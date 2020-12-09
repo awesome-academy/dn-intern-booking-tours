@@ -4,7 +4,7 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 ruby "2.7.1"
 
 gem "bcrypt"
-gem "bootsnap", ">= 1.4.2", require: false
+gem "bootsnap", ">= 1.5.1", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "config"

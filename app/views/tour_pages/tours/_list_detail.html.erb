@@ -10,7 +10,7 @@
       <%= t("tour_price", price: exchange_money(tour.price)) %>
     </td>
     <td>
-      <%= link_to t("booking.book_tour"), "#", class: "btn btn-success" %>
+      <%= link_to t("booking.book_tour"), booking_path(tour.id), class: "btn btn-success" %>
     </td>
   </tr>
 <% end %>
