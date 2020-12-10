@@ -1,9 +1,20 @@
 vi:
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%m/%d/%Y %H:%M"
+      short: "%H:%M"
+      notime: "%m/%d/%Y"
+  tour_price: "%{price} VND"
   booking_tour: "HG Booking tours"
   english: "Tiếng Anh"
   vietnamese: "Tiếng Việt"
   website_description: "HG Booking tours là một trang web cho phép đặt các tour du lịch đến mọi nơi"
   home: "Trang chủ"
+  close: "Thoát"
   login: "Đăng nhập"
   language: "Ngôn ngữ"
   menu: "Menu"
@@ -12,8 +23,13 @@ vi:
   tour:
     list_tour: "Danh sách tour"
     tour_subheading: "Chọn điểm đến của bạn và khám phá"
+    start_date: "Ngày đi: "
+    end_date: "Ngày về: "
+    price: "Giá: "
+    rating: "Xếp hạng: "
+    review: "Đánh giá: "
   booking:
     booking_now: "Đặt vé ngay!"
-    book_tour: "Đặt tour này"
+    book_tour: "Đặt tour"
     welcome1: "Chào mừng bạn đến với HG Booking Tours"
     welcome2: "Nào cùng đi muôn nơi"

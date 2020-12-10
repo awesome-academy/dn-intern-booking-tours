@@ -20,6 +20,7 @@ gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "will_paginate"
+gem "will_paginate-bootstrap4"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
