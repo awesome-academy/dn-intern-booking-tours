@@ -16,11 +16,16 @@ vi:
   home: "Trang chủ"
   close: "Thoát"
   login: "Đăng nhập"
+  logout: "Đăng xuất"
   language: "Ngôn ngữ"
   menu: "Menu"
   language: "Ngôn ngữ"
+  btn_submit: "Xác nhận"
   copyright: "Copyright @ Pham Le Hoan 2020"
+  user:
+    pls_login: "Vui lòng đăng nhập"
   tour:
+    place: "Địa điểm: "
     list_tour: "Danh sách tour"
     tour_subheading: "Chọn điểm đến của bạn và khám phá"
     start_date: "Ngày đi: "
@@ -33,3 +38,9 @@ vi:
     book_tour: "Đặt tour"
     welcome1: "Chào mừng bạn đến với HG Booking Tours"
     welcome2: "Nào cùng đi muôn nơi"
+    confirm_info_message: "Vui lòng xác nhận lại thông tin:"
+    other_trip: "Đặt tour khác"
+    success: "Cảm ơn bạn đã đặt tour!"
+    fail: "Có lỗi xảy ra. Vui lòng thử lại!"
+    confirm:
+      info: "Chúng tôi liên hệ với:"

@@ -24,8 +24,13 @@
             <% end %>
           </ul>
         <li>
-        <li><%= link_to t("login"), "#" %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to t("login"), login_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
 </nav>
+<%= render "common/flash" %>
