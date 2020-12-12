@@ -1,6 +1,4 @@
-class BookingsController < ApplicationController
-  before_action :check_login
-
+class User::BookingsController < UserController
   def show
     @tour_detail = TourDetail.find_by id: params[:id]
     @booking = Booking.new
