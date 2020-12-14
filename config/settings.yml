@@ -9,5 +9,6 @@ user:
   avatar-size:
     max_size: 80
     min_size: 50
-page:
-  per_page: 6
+per_page:
+  default: 6
+  manage_table: 4

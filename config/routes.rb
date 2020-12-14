@@ -12,6 +12,9 @@ Rails.application.routes.draw do
           patch :cancel
         end
       end
+      resources :tours, except: [:new, :edit]
+      resources :tour_details, except: [:index, :new, :edit]
+      resources :users, only: [:index, :update, :destroy]
     end
     namespace :user do
       resources :bookings, only: [:show, :create]

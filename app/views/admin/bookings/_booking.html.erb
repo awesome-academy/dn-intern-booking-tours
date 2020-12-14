@@ -1,0 +1,31 @@
+<tr>
+  <td scope="row"><%= l(booking.created_at, format: :notime) %></td>
+  <td><%= booking.user.email %></td>
+  <td><%= booking.tour_detail.tour.place %></td>
+  <td><%= l(booking.tour_detail.start_date, format: :notime) %></td>
+  <td><%= l(booking.tour_detail.end_date, format: :notime) %></td>
+  <td><%= t("tour_price", price: exchange_money(booking.current_price * booking.number_of_bookers)) %></td>
+  <td>
+    <% if booking.paid? %>
+      <%= link_to t("booking.pay.refunded"), refund_admin_booking_path(booking.id), class: "btn btn-warning", "data-confirm": t("sure?"), method: :patch %>
+    <% else %>
+      <%= link_to t("booking.pay.paid"),paid_admin_booking_path(booking.id), class: "btn btn-success", "data-confirm": t("sure?"), method: :patch %>
+    <% end %>
+  </td>
+  <td>
+    <% if !booking.paid? %>
+      <% if booking.booked? %>
+        <%= link_to t("booking.cancel"), cancel_admin_booking_path(booking.id), class: "btn btn-warning", "data-confirm": t("sure?"), method: :patch %>
+      <% elsif booking.canceled? %>
+        <%= link_to t("booking.accept"), admin_booking_path(booking.id), class: "btn btn-success", "data-confirm": t("sure?"), method: :patch %>
+      <% else %>
+        <%= link_to t("booking.accept"), admin_booking_path(booking.id), class: "btn btn-success", "data-confirm": t("sure?"), method: :patch %>
+        <%= link_to t("booking.cancel"), cancel_admin_booking_path(booking.id), class: "btn btn-warning", "data-confirm": t("sure?"), method: :patch %>
+      <% end %>
+
+      <% if Time.zone.today > booking.tour_detail.start_date %>
+        <%= link_to t("btn_delete"), admin_booking_path(booking.id), class: "btn btn-danger", "data-confirm": t("sure?"), method: :delete %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
