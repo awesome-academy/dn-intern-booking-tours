@@ -10,7 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav text-uppercase font-weight-bold ml-auto">
         <li class="nav-item"><%= link_to t("home"), root_path %></li>
-        <li class="dropdown mr-3">
+        <% if logged_in? && current_admin? %>
+          <li><%= link_to t("admin_manage"), admin_bookings_path %></li>
+        <% end %>
+        <li class="dropdown ml-3 mr-3">
           <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
             <%= t "language" %>
             <b class="caret"></b>
@@ -25,7 +28,14 @@
           </ul>
         <li>
         <% if logged_in? %>
-          <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+          <li class="dropdown ml-3 mr-3">
+            <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
+              <%= image_tag("user_avatar.png", class: "img-avt") %>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+            </ul>
+          <li>
         <% else %>
           <li><%= link_to t("login"), login_path %></li>
         <% end %>
