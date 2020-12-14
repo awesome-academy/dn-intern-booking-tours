@@ -1,0 +1,15 @@
+<div class="row header-space">
+  <div class="col-md-6 mx-auto">
+    <h1 class="mb-4 text-conter"><%= t "login" %></h1>
+
+    <div class="border border-secondary rounded p-5">
+      <%= form_for :session, url: login_path do |f| %>
+        <%= f.label :email, t("user.email") %>
+        <%= f.email_field :email, class: "form-control" %>
+        <%= f.label :password, t("user.password") %>
+        <%= f.password_field :password, class: "form-control" %>
+        <%= f.submit t("btn_submit"), class: "btn btn-success mt-2" %>
+      <% end %>
+    </div>
+  </div>
+</div>

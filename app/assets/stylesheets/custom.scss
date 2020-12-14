@@ -1,8 +1,19 @@
 $bg-light-gray : #D3D3D3;
+
 .img-lang {
   width: 40px;
   height: 25px;
   margin: 0 8px;
+}
+
+.img-avt {
+  width: 33px;
+  height: 30px;
+  margin-top: -3px;
+
+  &:hover {
+    filter: grayscale(20%);
+  }
 }
 
 .paginate-center{
