@@ -26,7 +26,9 @@
   </head>
 
   <body id="page-top">
+    <%= render "common/header/menu" %>
     <%= yield %>
+    <%= render "common/footer" %>
     <%= javascript_pack_tag "custom" %>
   </body>
 </html>

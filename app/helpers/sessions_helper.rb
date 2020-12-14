@@ -25,7 +25,7 @@ module SessionsHelper
 
   # Authentication admin to perform functions of this admin
   def current_admin?
-    current_user.role?
+    current_user.admin?
   end
 
   def log_out
