@@ -1,0 +1,46 @@
+<tr>
+  <td scope="row" class="w-10">
+    <%= image_tag "tour/0#{tour.id.div(6)}-thumbnail.jpg", class:"img-fluid" %>
+  </td>
+  <td><%= tour.place %></td>
+  <td>
+    <% if tour.periodic? %>
+      <%= t("period") %>
+    <% else %>
+      <%= t("user_create") %>
+    <% end %>
+  </td>
+  <td class="text-center">
+    <%= link_to t("btn_modify"), "#update", class: "btn btn-info", "data-toggle": "modal" %>
+    <% if tour.tour_details.blank? %>
+      <%= link_to t("btn_delete"), admin_tour_path(tour.id), class: "btn btn-danger", "data-confirm": t("sure?"), method: :delete %>
+    <% end %>
+    <div class="modal fade text-left" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><%= t "tour.modify" %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= form_for [:admin, @tour], url: admin_tour_path(tour.id), class: "form-group", method: :put do |f| %>
+            <div class="modal-body">
+              <%= f.label :title, "*" + t("tour.title") %>
+              <%= f.text_field :title, class: "form-control mb-3", value: tour.title %>
+              <%= f.label :description, "*" + t("tour.description") %>
+              <%= f.text_area :description, class: "form-control mb-3", value: tour.description %>
+            </div>
+            <div class="modal-footer">
+              <%= link_to t("close"), "#", class: "btn btn-secondary", "data-dismiss": "modal" %>
+              <%= f.submit t("btn_submit"), class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td class="text-center">
+    <%= link_to "&#8594;".html_safe, admin_tour_path(tour.id), class: "btn btn-secondary rounded-circle tour-link" %>
+  </td>
+</tr>
