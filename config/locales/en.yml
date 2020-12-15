@@ -61,6 +61,9 @@ en:
       success: "User account has been deleted"
       fail: "Deleted user fail"
   tour:
+    des:
+      tour: "Tour"
+      tour_details: "Tour details"
     id: "ID"
     place: "Place: "
     title: "Title: "
@@ -80,7 +83,7 @@ en:
     total: "Total"
     add:
       success: "Tour has been created"
-      fail: "Create tour fail"
+      fail: "Create tour fail, please click Add button and try again."
     delete:
       sure?: "When you exit without creating new tour details, the tour will be deleted\n"
       success: "Tour has been deleted"

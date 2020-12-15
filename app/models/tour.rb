@@ -5,6 +5,8 @@ class Tour < ApplicationRecord
   has_many :users, through: :feedbacks
   has_many :users, through: :ratings
 
+  accepts_nested_attributes_for :tour_details
+
   validates :place, presence: true
   validates :title, presence: true
   validates :description, presence: true

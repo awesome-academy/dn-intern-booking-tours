@@ -61,6 +61,9 @@ vi:
       success: "Đã xóa tài khoản người dùng"
       fail: "Xóa tài khoản người dùng thất bại"
   tour:
+    des:
+      tour: "Tour"
+      tour_details: "Chi tiết tour"
     id: "ID"
     place: "Địa điểm: "
     title: "Tiêu đề: "
@@ -80,7 +83,7 @@ vi:
     total: "Thành tiền"
     add:
       success: "Tour đã được thêm thành công"
-      fail: "Thêm tour thất bại"
+      fail: "Thêm tour thất bại, vui lòng click vào nút thêm mới và thử lại."
     delete:
       sure?: "Khi bạn thoát ra mà không tạo chuyến đi mới cho tour, tour hiện tại sẽ bị xóa\n"
       success: "Tour đã được xóa thành công"

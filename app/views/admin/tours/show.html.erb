@@ -51,9 +51,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= form_for [:admin, @tour_detail], class: "form-group" do |f| %>
+      <%= form_for [:admin, @tour.tour_details.new], class: "form-group" do |f| %>
         <div class="modal-body">
-          <%= f.hidden_field :tour_id, value: @tour.id %>
+          <%= hidden_field_tag :tour_id, @tour.id %>
           <div class="row mb-2">
             <div class="col-md-6">
               <div class="text-danger d-inline">*</div>
