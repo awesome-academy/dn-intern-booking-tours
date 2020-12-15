@@ -14,10 +14,20 @@ Rails.application.routes.draw do
       end
       resources :tours, except: [:new, :edit]
       resources :tour_details, except: [:index, :new, :edit]
-      resources :users, only: [:index, :update, :destroy]
+      resources :users, only: [:index, :update, :destroy] do
+        member do
+          patch :be_user
+          patch :be_admin
+        end
+      end
     end
     namespace :user do
       resources :bookings, only: [:show, :create]
+      resources :users, only: [:index, :update] do
+        member do
+          put :change_password
+        end
+      end
     end
   end
 end

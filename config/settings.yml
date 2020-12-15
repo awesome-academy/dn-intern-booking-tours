@@ -9,6 +9,9 @@ user:
   avatar-size:
     max_size: 80
     min_size: 50
+  gender:
+    female: 0
+    male: 1
 per_page:
   default: 6
-  manage_table: 4
+  manage_booking: 5

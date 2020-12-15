@@ -1,0 +1,77 @@
+<div class="bg-overlay">
+    <div class="modal-content p-tour_detail">
+      <% if @tour.tour_details.blank? %>
+        <%= link_to admin_tour_path(@tour.id), class: "close-modal", "data-confirm": t("tour.delete.sure?") + t("sure?"), method: :delete do %>
+          <%= image_tag "close-icon.svg", alt: "Close modal" %>
+        <% end %>
+      <% else %>
+        <%= link_to admin_tours_path, class: "close-modal" do %>
+          <%= image_tag "close-icon.svg", alt: "Close modal" %>
+        <% end %>
+      <% end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag "tour/0#{@tour.id.div(6)}-full.jpg", class: "img-fluid" %>
+          </div>
+          <div class="col-md-6">
+            <div class="modal-body">
+              <h2 class="text-uppercase"><%= @tour.title %></h2>
+              <p><%= @tour.description %></p>
+
+              <%= link_to t("tour.tour_detail.new"), "#new", class: "btn btn-success float-right mb-3 tour-link", "data-toggle": "modal"  %>
+              <div class="table-pos">
+                <table class="table table-striped table-inverse">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th><%= t "tour.start_date" %></th>
+                      <th><%= t "tour.end_date" %></th>
+                      <th><%= t "tour.price" %></th>
+                      <th><%= t "booking.booking_now" %></th>
+                    </tr>
+                  </thead>
+                    <tbody>
+                      <%= render partial: "admin/tour_details/tour_detail", collection: @tour.tour_details, as: @tour_details %>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade bg-overlay" id="new" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t "tour.tour_detail.new" %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for [:admin, @tour_detail], class: "form-group" do |f| %>
+        <div class="modal-body">
+          <%= f.hidden_field :tour_id, value: @tour.id %>
+          <div class="row mb-2">
+            <div class="col-md-6">
+              <%= f.label :start_date, "*" + t("tour.start_date") %>
+              <%= f.date_field :start_date, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :end_date, "*" + t("tour.end_date") %>
+              <%= f.date_field :end_date, class: "form-control" %>
+            </div>
+          </div>
+          <%= f.label :price, "*" + t("tour.price") %>
+          <%= f.number_field :price, class: "form-control" %>
+        </div>
+        <div class="modal-footer">
+          <%= link_to t("close"), "#",class: "btn btn-secondary", "data-dismiss": "modal" %>
+          <%= f.submit t("btn_submit"), class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
