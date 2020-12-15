@@ -26,7 +26,7 @@ class Admin::BookingsController < AdminController
   end
 
   def refund
-    if !later_end_date? && @booking.not_paid!
+    if !later_end_date? && @booking.refunded!
       cancel
       flash[:success] = t "booking.pay.success"
     else

@@ -89,6 +89,22 @@ $bg-light-gray : #D3D3D3;
   }
 }
 
+.user-dropdown-menu {
+  min-width: 15rem !important;
+  left: -11rem !important;
+  padding: 20px !important;
+  background-color: aliceblue !important;
+  li {
+    a {
+      color: black !important;
+    }
+    & {
+      text-decoration: none;
+    }
+  }
+  z-index: 1201;
+}
+
 .alert{
   z-index: 1200;
 }

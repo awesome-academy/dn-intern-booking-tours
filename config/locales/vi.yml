@@ -30,14 +30,27 @@ vi:
   account:
     invalid_user: "Wrong username or password. Please check again"
   user:
+    information: "Thông tin tài khoản"
+    full_name: "Họ và tên"
     email: "Email: "
     password: "Mật khẩu: "
+    password_confirmation: "Nhập lại mật khẩu: "
+    new_password: "Mật khẩu mới"
+    current_password: "Mật khẩu hiện tại: "
     phone_number: "Phone number: "
     birthday: "Sinh nhật: "
     gender: "Giới tính: "
     gen:
-      0: "Nữ"
-      1: "Nam"
+      "0": "Nữ"
+      "1": "Nam"
+    payment:
+      "not_paid": "Chưa trả"
+      "rejected": "Từ chối"
+      "refunded": "Trả vé"
+      "paid": "Đã trả"
+    booking_history: "Lịch sử đặt tour"
+    update_profile: "Chỉnh sửa thông tin"
+    change_password: "Đổi mật khẩu"
     address: "Địa chỉ: "
     btn_be_user: "User"
     btn_be_admin: "Admin"
@@ -60,6 +73,14 @@ vi:
     deleted:
       success: "Đã xóa tài khoản người dùng"
       fail: "Xóa tài khoản người dùng thất bại"
+    update:
+      info:
+        success: "Bạn đã cập nhật thông tin cá nhân thành công"
+        fail: "Cập nhật thông tin cá nhân thất bại"
+      password:
+        success: "Bạn đã cập nhật mật khẩu thành công"
+        fail: "Cập nhật mật khẩu thất bại"
+        wrong_cur_passwd: "Mật khẩu hiện tại mà bạn nhập không đúng"
   tour:
     id: "ID"
     place: "Địa điểm: "
