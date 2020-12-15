@@ -30,14 +30,26 @@ en:
   account:
     invalid_user: "Sai tên đăng nhập hoặc mật khẩu. Vui lòng kiểm tra lại"
   user:
+    information: "User information"
+    full_name: "Full name: "
     email: "Email: "
     password: "Password"
+    password_confirmation: "Re-enter password: "
+    new_password: "New password: "
+    current_password: "Current password: "
     phone_number: "Phone number: "
     birthday: "Birthday: "
     gender: "Gender: "
     gen:
-      0: "Female"
-      1: "Male"
+      "0": "Female"
+      "1": "Male"
+    payment:
+      "": "Not paid"
+      not_paid: "Returned"
+      paid: "Paid"
+    booking_history: "Booking history"
+    btn_update_profile: "Update profile"
+    btn_change_password: "Change password"
     address: "Address: "
     btn_be_user: "User"
     btn_be_admin: "Admin"
@@ -60,6 +72,14 @@ en:
     deleted:
       success: "User account has been deleted"
       fail: "Deleted user fail"
+    update:
+      info:
+        success: "You has been updated your information"
+        fail: "Update user information fail"
+      password:
+        success: "You has been updated your password"
+        fail: "Update password fail"
+        wrong_cur_passwd: "Current password you type are wrong"
   tour:
     id: "ID"
     place: "Place: "
