@@ -1,0 +1,33 @@
+<div class="row header-space">
+  <div class="float-left">
+    <nav class="nav justify-content-center admin-menu">
+      <%= link_to t("admin_tab.booking"), admin_bookings_path, class: "nav-link btn-info" %>
+      <%= link_to t("admin_tab.tour"), admin_tours_path, class: "nav-link btn-info" %>
+      <%= link_to t("admin_tab.user"), admin_users_path, class: "nav-link active btn-info" %>
+    </nav>
+  </div>
+  <div class="col-md-10 ml-auto">
+    <h1><%= t "admin_tab.user" %></h1>
+    <div class="table-pos">
+      <table class="table table-striped table-inverse table-responsive">
+        <thead class="bg-primary text-white">
+          <tr>
+            <th><%= t "created_at" %></th>
+            <th><%= t "user.full_name" %></th>
+            <th><%= t "user.email" %></th>
+            <th><%= t "user.phone_number" %></th>
+            <th class="text-center"><%= t "control" %></th>
+            <th><%= t "tour.details" %></th>
+            <th><%= t "user.role-status" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @users %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="paginate-center">
+    <%= will_paginate @users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer%>
+  </div>
+</div>
