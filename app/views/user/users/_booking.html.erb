@@ -1,0 +1,15 @@
+<tr>
+  <td scope="row"><%= l(booking.created_at, format: :notime) %></td>
+  <td><%= booking.tour_detail.tour.place %></td>
+  <td><%= l(booking.tour_detail.start_date, format: :notime) %></td>
+  <td><%= l(booking.tour_detail.end_date, format: :notime) %></td>
+  <td><%= booking.number_of_bookers %></td>
+  <td><%= t("tour_price", price: exchange_money(booking.current_price)) %></td>
+  <td><%= t("tour_price", price: exchange_money(booking.current_price * booking.number_of_bookers)) %></td>
+  <td><%= t("user.payment.#{booking.payment_status}") %></td>
+  <td>
+    <% if reject_accepted booking %>
+        <%= link_to t("booking.cancel"), user_booking_path(booking.id), class: "btn btn-warning", "data-confirm": t("sure?"), method: :patch %>
+    <% end %>
+  </td>
+</tr>
