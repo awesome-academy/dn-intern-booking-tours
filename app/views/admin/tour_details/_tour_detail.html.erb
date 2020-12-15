@@ -1,0 +1,57 @@
+<tr>
+  <td scope="row">
+    <%= l(tour_detail.start_date, format: :notime) %>
+  </td>
+  <td>
+    <%= l(tour_detail.end_date, format: :notime) %>
+  </td>
+  <td>
+    <%= t("tour_price", price: exchange_money(tour_detail.price)) %>
+  </td>
+  <td>
+    <%= link_to t("btn_modify"), "#update", class: "btn btn-info float-right mb-4 tour-link", "data-toggle": "modal" %>
+
+    <% if tour_detail.bookings.blank? %>
+      <%= link_to t("btn_delete"), admin_tour_detail_path(tour_detail.id), class: "btn btn-danger", "data-confirm": t("sure?"), method: :delete %>
+    <% end %>
+
+
+    <div class="modal fade bg-overlay" id="update" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><%= t "tour.modify" %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= form_for [:admin, @tour_detail], url: admin_tour_detail_path(tour_detail.id), class: "form-group", method: :put do |f| %>
+            <div class="modal-body">
+              <% if tour_detail.bookings.blank? %>
+                <div class="row mb-2">
+                  <div class="col-md-6">
+                    <div class="text-danger d-inline">*</div>
+                    <%= f.label :start_date, t("tour.start_date") %>
+                    <%= f.date_field :start_date, class: "form-control", value: tour_detail.start_date %>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="text-danger d-inline">*</div>
+                    <%= f.label :end_date, t("tour.end_date") %>
+                    <%= f.date_field :end_date, class: "form-control", value: tour_detail.end_date %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="text-danger d-inline">*</div>
+              <%= f.label :price, t("tour.price") %>
+              <%= f.number_field :price, class: "form-control", value: tour_detail.price %>
+            </div>
+            <div class="modal-footer">
+              <%= link_to t("close"), "#", class: "btn btn-secondary", "data-dismiss": "modal" %>
+              <%= f.submit t("btn_submit"), class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </td>
+</tr>
