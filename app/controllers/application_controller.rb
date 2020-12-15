@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
 
-  before_action :set_locale
+  before_action :set_locale, :check_banned
 
   private
 
@@ -24,6 +24,14 @@ class ApplicationController < ActionController::Base
     return if current_admin?
 
     flash[:danger] = t "user.not_admin"
+    redirect_to root_path
+  end
+
+  def check_banned
+    return unless current_banned?
+
+    log_out
+    flash[:danger] = t "user.banned.success"
     redirect_to root_path
   end
 end

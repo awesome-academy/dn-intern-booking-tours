@@ -17,9 +17,16 @@ class User::BookingsController < UserController
       flash.now[:danger] = t "booking.fail"
       render :show
     end
-  rescue StandardError
-    flash[:danger] = t "booking.booked"
-    redirect_to root_path
+  end
+
+  def update
+    @booking = Booking.find_by id: params[:id]
+    if !@booking.paid? && !later_start_date? && @booking.rejected!
+      flash[:success] = t "booking.canceling.success"
+    else
+      flash[:danger] = t "booking.canceling.fail"
+    end
+    redirect_to user_users_path
   end
 
   private
@@ -38,6 +45,11 @@ class User::BookingsController < UserController
                   :current_price,
                   :contact_name,
                   :contact_number,
+                  :payment_status,
                   :status
+  end
+
+  def later_start_date?
+    Time.zone.today > @booking.tour_detail.start_date
   end
 end

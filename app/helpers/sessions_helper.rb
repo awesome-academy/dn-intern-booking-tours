@@ -28,6 +28,10 @@ module SessionsHelper
     current_user.admin?
   end
 
+  def current_banned?
+    logged_in? && current_user.banned?
+  end
+
   def log_out
     session.delete(:user_id)
     @current_user = nil

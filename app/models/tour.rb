@@ -11,6 +11,7 @@ class Tour < ApplicationRecord
   validates :type_of_tour, presence: true
 
   scope :sort_place_name, ->{order :place}
+  scope :recent_tours, ->{order created_at: :desc}
 
   enum type_of_tour: {periodic: 1, base_on_user: 2}
 end
