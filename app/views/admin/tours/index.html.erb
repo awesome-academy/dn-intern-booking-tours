@@ -42,16 +42,33 @@
       </div>
       <%= form_for [:admin, @tour], class: "form-group" do |f| %>
         <div class="modal-body">
-          <div class="text-danger d-inline">*</div>
-          <%= f.label :place, t("tour.place") %>
-          <%= f.text_field :place, class: "form-control" %>
-          <div class="text-danger d-inline">*</div>
-          <%= f.label :title, t("tour.title") %>
-          <%= f.text_field :title, class: "form-control" %>
-          <div class="text-danger d-inline">*</div>
-          <%= f.label :description, t("tour.description") %>
-          <%= f.text_area :description, class: "form-control" %>
-          <%= f.hidden_field :type_of_tour, value: :periodic %>
+          <div class="row">
+            <div class="col-md-7">
+              <div class="text-danger d-inline">*</div>
+              <%= f.label :place, t("tour.place") %>
+              <%= f.text_field :place, class: "form-control" %>
+              <div class="text-danger d-inline">*</div>
+              <%= f.label :title, t("tour.title") %>
+              <%= f.text_field :title, class: "form-control" %>
+              <div class="text-danger d-inline">*</div>
+              <%= f.label :description, t("tour.description") %>
+              <%= f.text_area :description, class: "form-control" %>
+              <%= f.hidden_field :type_of_tour, value: :periodic %>
+            </div>
+            <div class="col-md-5">
+              <%= f.fields_for :tour_details do |ff| %>
+                <div class="text-danger d-inline">*</div>
+                <%= ff.label :start_date %>
+                <%= ff.date_field :start_date, class: "form-control" %>
+                <div class="text-danger d-inline">*</div>
+                <%= ff.label :end_date %>
+                <%= ff.date_field :end_date, class: "form-control" %>
+                <div class="text-danger d-inline">*</div>
+                <%= ff.label :price %>
+                <%= ff.number_field :price, class: "form-control" %>
+              <% end %>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <%= link_to t("close"), "#", class: "btn btn-secondary", "data-dismiss": "modal" %>

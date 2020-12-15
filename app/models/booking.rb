@@ -6,6 +6,6 @@ class Booking < ApplicationRecord
 
   scope :recent_bookings, ->{order created_at: :desc}
 
-  enum payment_status: {not_paid: 0, paid: 1}
-  enum status: {booked: 1, pending: 2, canceled: 3}
+  enum payment_status: {not_paid: -1, refunded: 0, paid: 1}
+  enum status: {booked: 1, pending: 2, canceled: 3, rejected: 4}
 end

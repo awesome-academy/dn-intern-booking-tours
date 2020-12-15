@@ -32,7 +32,9 @@
             <%= link_to "#", class: "dropdown-toggle", "data-toggle": "dropdown" do %>
               <%= image_tag("user_avatar.png", class: "img-avt") %>
             <% end %>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu user-dropdown-menu">
+              <li><%= link_to t("user.information"), user_users_path %></li>
+              <hr>
               <li><%= link_to t("logout"), logout_path, method: :delete %></li>
             </ul>
           <li>
