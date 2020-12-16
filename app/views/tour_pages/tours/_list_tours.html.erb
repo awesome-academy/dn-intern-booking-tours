@@ -3,7 +3,15 @@
   <div class="container">
     <div class="text-center">
       <h2 class="section-heading text-uppercase"><%= t "tour.list_tour" %></h2>
-      <h3 class="section-subheading text-muted"><%= t "tour.tour_subheading" %></h3>
+      <h3 class="section-subheading text-muted mb-4"><%= t "tour.tour_subheading" %></h3>
+      <div class="row">
+        <div class="mx-auto mb-5">
+          <%= form_tag search_path, method: :get, class: "form-inline d-block" do %>
+            <%= text_field_tag :place, "",  placeholder: "Enter place to search", class: "form-control" %>
+            <%= submit_tag t("search.btn"), class: "btn btn-success"  %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="row">
       <%= render partial: "tour_pages/tours/tour", collection: @tours %>

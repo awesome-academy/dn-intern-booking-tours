@@ -25,7 +25,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <%= form_for [:admin, @tour_detail], url: admin_tour_detail_path(tour_detail.id), class: "form-group", method: :put do |f| %>
+          <%= form_for [:admin, @tour.tour_details.new], url: admin_tour_detail_path(tour_detail.id), class: "form-group", method: :put do |f| %>
             <div class="modal-body">
               <% if tour_detail.bookings.blank? %>
                 <div class="row mb-2">
