@@ -1,10 +1,10 @@
 class Admin::ToursController < AdminController
-  before_action :get_tour, only: :show
+  before_action :get_tour, only: [:destroy, :show]
 
   def index
     @tours = Tour.recent_tours.includes(tour_details: [:tour])
                  .paginate(page: params[:page],
-                           per_page: Settings.per_page.default)
+                           per_page: Settings.per_page.manage_table)
     @tour = Tour.new
     @tour.tour_details.new
   end
