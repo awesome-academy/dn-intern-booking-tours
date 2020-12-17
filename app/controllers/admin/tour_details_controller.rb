@@ -1,5 +1,5 @@
 class Admin::TourDetailsController < AdminController
-  before_action :get_tour_detail, only: :destroy
+  before_action :get_tour_detail, only: [:destroy, :update]
   before_action :get_tour, only: :create
 
   def create
@@ -8,6 +8,16 @@ class Admin::TourDetailsController < AdminController
       flash[:success] = t "tour.add.success"
     else
       flash[:danger] = t "tour.add.fail"
+    end
+
+    redirect_to admin_tour_path(@tour_detail.tour_id)
+  end
+
+  def update
+    if @tour_detail.update tour_detail_update_params
+      flash[:success] = t "tour.update.success"
+    else
+      flash[:danger] = t "tour.update.fail"
     end
 
     redirect_to admin_tour_path(@tour_detail.tour_id)
@@ -44,6 +54,13 @@ class Admin::TourDetailsController < AdminController
   end
 
   def tour_detail_create_params
+    params.require(:tour_detail)
+          .permit :start_date, :end_date, :price
+  end
+
+  def tour_detail_update_params
+    params.require(:tour_detail).permit :price if @tour_detail.bookings.present?
+
     params.require(:tour_detail)
           .permit :start_date, :end_date, :price
   end
